@@ -1,0 +1,31 @@
+class Character {
+    constructor(name, health, power) {
+        this._name = name;
+        this._health = health;
+        this._power = power;
+    }
+
+    get name() { return this._name; }
+    set name(value) { this._name = value; }
+
+    get health() { return this._health; }
+    set health(value) {
+        if (typeof value !== 'number') {
+            throw new TypeError('Health must be a number');
+        }
+        this._health = value;
+    }
+
+    get power() { return this._power; }
+    set power(value) {
+        if (typeof value !== 'number') {
+            throw new TypeError('Power must be a number');
+        }
+        this._power = value;
+    }
+
+    describe() {
+        return `${this._name} | HP: ${this._health} | Power: ${this._power}`;
+    }
+
+    static battle(a, b) {
